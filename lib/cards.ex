@@ -1,7 +1,13 @@
 defmodule Cards do
 
   def create_deck do
-    ["Ace","Two","Three"]
+    values = ["Ace","Two","Three", "Four", "Five"]
+    suits = ["Spade", "Club", "Heart", "Diamond"]
+
+    for value <- values, suit <- suits do
+      "#{value} of #{suit}"
+    end  
+        
   end  
 
   def shuffle(deck) do
@@ -11,5 +17,9 @@ defmodule Cards do
   def contain?(deck, card) do
     Enum.member?(deck, card)
   end 
+
+  def deal(deck, hands_size) do
+    Enum.split(deck, hands_size)
+  end  
 
 end
